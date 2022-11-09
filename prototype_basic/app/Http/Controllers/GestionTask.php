@@ -23,7 +23,7 @@ class GestionTask extends Controller
     {
         $task = new Task();
         $task->taskName = $request->input('taskName');
-        $task->starTask = $request->input('starTask');
+        $task->startDate = $request->input('startDate');
         $task->endDate = $request->input('endDate');
         $task->brief_id = $request->input('idBrief');
         $task->save();

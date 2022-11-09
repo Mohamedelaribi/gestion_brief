@@ -38,5 +38,6 @@
       @yield('briefs.form')
       @yield('task.form')
       @yield('briefs.index')
+      @yield('briefs.editForm')
 </body>
 </html>

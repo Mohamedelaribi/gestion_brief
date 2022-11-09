@@ -37,19 +37,28 @@ class GestionBrief extends Controller
 
     public function show($id)
     {
-        
+        $tasks = Brief::all();
+        return view('briefs.editForm',compact('tasks'));
     }
 
 
     public function edit($id)
     {
-        
+        $brief = Brief::find($id);
+        $brief = Brief::all();
+        return view('briefs.editForm',compact('brief'));
     }
 
 
     public function update(Request $request, $id)
     {
-        
+        $updateBrief = Brief::find($id);
+        $updateBrief->nameBrief = $request->input('newnameBrief');
+        $updateBrief->detailBrief = $request->input('newdetailBrief');
+        $updateBrief->starDate = $request->input('newstartDate');
+        $updateBrief->endDate = $request->input('newendDate');
+        $updateBrief->save();
+        return redirect()->route('brief.index');
     }
 
 

@@ -16,4 +16,6 @@ Route::resource('promotion', GestionPromotion::class);
 Route::resource('brief', GestionBrief::class);
 
 
-Route::resource('task', GestionTask::class);
+Route::resource('task', GestionTask::class)->shallow();
+
+Route::get('brief/{id}/task', [GestionTask::class,'create'])->name('createTask');
