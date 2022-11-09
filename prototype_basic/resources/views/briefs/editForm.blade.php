@@ -13,12 +13,25 @@
             <input type="submit">
         </form>
     
-
-        @foreach ($brief as $task)
-    <h1>{{$task->nameBrief}}</h1>
-    @foreach ($task->task as $item)
-        
-    @endforeach
-    <h1>{{$item->taskName}}</h1>
-@endforeach
+        <table class="table">
+            <thead>
+              <tr>
+                <th>tache</th>
+                <th>date début</th>
+                <th>date fin</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($tasks as $task)            
+              <tr>
+                <td>{{$task->taskName}}</td>
+                <td>{{$task->startDate}}</td>
+                <td>{{$task->endDate}}</td>
+                <td><a href="{{route('editTask',$task->id)}}"><button type="button" class="btn btn-outline-success">edit tache</button></a>
+                <a href="{{route('createTask',$brief->id)}}"><button type="button" class="btn btn-outline-success">ajouter tache</button></a></td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
 @endsection

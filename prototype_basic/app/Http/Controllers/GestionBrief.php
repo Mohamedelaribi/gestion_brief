@@ -44,9 +44,9 @@ class GestionBrief extends Controller
 
     public function edit($id)
     {
-        $brief = Brief::find($id);
-        $brief = Brief::all();
-        return view('briefs.editForm',compact('brief'));
+        $brief = Brief::where('id',$id)->first();
+        $tasks = $brief->task;
+        return view('briefs.editForm',compact('brief','tasks'));
     }
 
 
@@ -64,6 +64,8 @@ class GestionBrief extends Controller
 
     public function destroy($id)
     {
-        
+        Brief::destroy($id);
+        return redirect()->route('brief.index');
     }
+
 }
