@@ -11,15 +11,16 @@ use App\Http\Controllers\GestionTask;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('promotions.promotion');
+    return view('home');
 });
 
 Route::resource('promotion', GestionPromotion::class);
+Route::resource('promotion.apprenant', GestionApprenant::class)->shallow();
 
 
 Route::resource('brief', GestionBrief::class);
 
-Route::get('/brief/{id}/edit', [GestionTask::class,'index']);
+// Route::get('/brief/{id}/edit', [GestionTask::class,'index']);
 
 
 Route::resource('brief.task', GestionTask::class)->shallow();
