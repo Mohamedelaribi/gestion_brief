@@ -1,7 +1,7 @@
 @extends('layout')
 @section('task.edit')
 
-<form action="{{route('updateTask',$task)}}" method="POST">
+<form action="{{route('task.update',$task->id)}}" method="POST">
 
     @csrf
     @method('PUT')

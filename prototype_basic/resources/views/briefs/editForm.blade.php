@@ -11,6 +11,8 @@
             <input type="date" value="{{ $brief->endDate }}" name="newendDate">
             <input type="hidden" value="{{$brief->id}}" name="idBrief">
             <input type="submit">
+
+            <a href="{{route('brief.task.create',$brief->id)}}"><button type="button" class="btn btn-outline-success">ajouter tache</button></a></td>
         </form>
     
         <table class="table">
@@ -25,13 +27,19 @@
             <tbody>
                 @foreach ($tasks as $task)            
               <tr>
-                <td>{{$task->taskName}}</td>
+                <td>{{$task->taskName}}</td>  
                 <td>{{$task->startDate}}</td>
                 <td>{{$task->endDate}}</td>
-                <td><a href="{{route('editTask',$task->id)}}"><button type="button" class="btn btn-outline-success">edit tache</button></a>
-                <a href="{{route('createTask',$brief->id)}}"><button type="button" class="btn btn-outline-success">ajouter tache</button></a></td>
-              </tr>
+                <td><a href="{{route('task.edit',$task->id)}}"><button type="button" class="btn btn-outline-success">edit tache</button></a>
+                  <form action="{{route ('task.destroy',$task->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-secondary">delete</button>
+                  </form>              
+                </tr>
               @endforeach
+              
+
             </tbody>
           </table>
 @endsection

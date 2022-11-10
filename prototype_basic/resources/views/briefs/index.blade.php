@@ -17,7 +17,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-secondary">delete</button>
               </form>
-              <a href="{{route('createTask',$brief->id)}}"><button type="button" class="btn btn-outline-dark">ajouter tache</button></a>
+              <a href="{{route('brief.task.create',$brief->id)}}"><button type="button" class="btn btn-outline-dark">ajouter tache</button></a>
           </div>
 
         </div>

@@ -22,8 +22,8 @@ Route::resource('brief', GestionBrief::class);
 Route::get('/brief/{id}/edit', [GestionTask::class,'index']);
 
 
-Route::resource('task', GestionTask::class)->shallow();
+Route::resource('brief.task', GestionTask::class)->shallow();
 
-Route::get('brief/{id}/task', [GestionTask::class,'create'])->name('createTask');
-Route::get('brief/task/{id}/edit', [GestionTask::class,'edit'])->name('editTask');
-Route::post('brief/task/{id}/edit', [GestionTask::class,'update'])->name('updateTask');
+// Route::get('brief/{id}/task', [GestionTask::class,'create'])->name('createTask');
+// Route::get('brief/task/{id}/edit', [GestionTask::class,'edit'])->name('editTask');
+// Route::post('brief/task/{id}/edit', [GestionTask::class,'update'])->name('updateTask');

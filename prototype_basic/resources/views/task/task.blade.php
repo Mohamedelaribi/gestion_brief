@@ -1,6 +1,6 @@
 @extends('layout')
 @section('task.form')
-    <form action="{{route('task.store')}}" method="POST">
+    <form action="{{route('brief.task.store',$id)}}" method="POST">
 
         @csrf
         <input type="text" name="taskName">

@@ -30,7 +30,7 @@ class GestionTask extends Controller
         $task->brief_id = $request->input('idBrief');
         $task->save();
 
-        return redirect()->route('brief.index');
+        return redirect('brief'."/".$request->input('idBrief')."/edit");
     }
 
     public function show($id)
@@ -49,18 +49,20 @@ class GestionTask extends Controller
 
     public function update(Request $request, $id)
     {
-        $updateBrief = Task::find($id);
-        $updateBrief->nameBrief = $request->input('newnameTask');
-        $updateBrief->starDate = $request->input('newstartDate');
-        $updateBrief->endDate = $request->input('newendDate');
-        $updateBrief->save();
-        return redirect()->route('brief.index');
+        $updateTak = Task::find($id);
+        $updateTak->taskName = $request->input('newnameTask');
+        $updateTak->startDate = $request->input('newstartDate');
+        $updateTak->endDate = $request->input('newendDate');
+        $updateTak->save();
+        return redirect('brief'."/".$updateTak->brief_id."/edit");
     }
 
 
     public function destroy($id)
     {
-        
+        $task = Task::find($id);
+        $task::destroy($id);
+        return redirect('brief'."/".$task->brief_id."/edit");
     }
 
 }
