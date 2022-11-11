@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apprenant;
+use App\Models\Apprenant_brief;
 
 class GestionApprenant extends Controller
 {

@@ -22,6 +22,7 @@ Route::resource('promotion.apprenant', GestionApprenant::class)->shallow();
 Route::resource('brief', GestionBrief::class);
 
 Route::resource('brief.assignbrief', AssingerBrief::class);
+Route::get('/brief/{id}/assignerbrief/{id_apprenant}', [AssingerBrief::class, 'assigner']);
 
 Route::resource('brief.task', GestionTask::class)->shallow();
 

@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apprenant_briefs', function (Blueprint $table) {
+        Schema::create('apprenant_brief', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id')->unsigned();
-            $table->bigInteger('product_id')->unsigned();
+            $table->BigInteger('brief_id');
+            $table->BigInteger('apprenant_id');
+            $table->timestamps();
         });
     }
 
@@ -27,7 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apprenant_briefs');
-
+        Schema::dropIfExists('apprenant_brief');
     }
 };

@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('briefs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('apprenant_id');
             $table->string('nameBrief');
             $table->string('detailBrief');
             $table->date('starDate');
