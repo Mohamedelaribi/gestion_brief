@@ -40,7 +40,8 @@ class GestionPromotion extends Controller
     public function edit($id)
     {
         $promotion = Promotion::where('id',$id)->first();
-        return view('promotions.edit', compact('promotion'));
+        $apprenants = $promotion->apprenant;
+        return view('promotions.edit', compact('promotion','apprenants'));
     }
 
 
@@ -56,6 +57,7 @@ class GestionPromotion extends Controller
 
     public function destroy($id)
     {
-        
+        Promotion::destroy($id);
+        return redirect()->route('promotion.index');
     }
 }

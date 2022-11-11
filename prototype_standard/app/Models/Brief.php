@@ -13,4 +13,8 @@ class Brief extends Model
     public function task(){
         return $this->hasMany(Task::class);
     }
+
+    public function apprenant(){
+        return $this->belongstoMany(Apprenant::class);
+    }
 }

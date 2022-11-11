@@ -10,6 +10,6 @@ class Promotion extends Model
     use HasFactory;
 
     public function apprenant(){
-        return $this->belongsToMany(Apprenant::class);
+        return $this->hasMany(Apprenant::class);
     }
 }

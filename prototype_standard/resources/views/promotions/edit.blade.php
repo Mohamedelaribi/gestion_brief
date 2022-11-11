@@ -23,19 +23,19 @@
       </tr>
     </thead>
     <tbody>
-        {{-- @foreach ()             --}}
+        @foreach ($apprenants as $apprenant)            
       <tr>
-        <td></td>  
-        <td></td>
-        <td></td>
-        <td><a href=""><button type="button" class="btn btn-outline-success">edit</button></a>
-          <form action="" method="post">
+        <td>{{ $apprenant->firstName }}</td>  
+        <td>{{ $apprenant->lastName }}</td>
+        <td>{{ $apprenant->email }}</td>
+        <td><a href="{{ route('apprenant.edit',$apprenant->id) }}"><button type="button" class="btn btn-outline-success">edit</button></a>
+          <form action="{{ route('apprenant.destroy',$apprenant->id) }}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-secondary">delete</button>
           </form>              
         </tr>
-      {{-- @endforeach --}}
+      @endforeach
       
 
     </tbody>

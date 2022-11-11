@@ -39,10 +39,12 @@
       @yield('promotions.form')
       @yield('promotions.edit')
       @yield('apprenants.form')
+      @yield('apprenants.edit')
       @yield('briefs.form')
       @yield('task.form')
       @yield('briefs.index')
       @yield('briefs.editForm')
+      @yield('briefs.assignerBrief')
       @yield('task.edit')
 </body>
 </html>
