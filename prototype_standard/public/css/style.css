@@ -3,20 +3,20 @@ table {
     border-collapse: collapse;
     width: 80%;
   }
-  
+
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
-  
+
   tr:nth-child(even) {
     background-color: #dddddd;
   }
 
 .container{
   margin-top: 40px;
-  
+
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
@@ -24,4 +24,97 @@ table {
 .action{
   display: flex;
   justify-content: space-around;
+}
+
+.titlPromotionList{
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
+}
+
+.promotionCard{
+    box-shadow: -4px 6px 10px -4px rgba(0,0,0,0.83);
+}
+
+.card-title{
+    text-align: center;
+}
+
+.promotionForm{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto;
+}
+
+
+.tableApprenant{
+    max-width: 80%;
+    margin: 30px auto auto 100px;
+}
+
+
+.actionTh{
+    width: 200px;
+}
+.actionTd
+{
+    max-width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.cardApprenant
+{
+    max-width: 40%;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    margin: 7rem auto auto 25rem;
+}
+
+
+.editFormBrief{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+}
+
+
+
+.briefList
+{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto 30px auto;
+}
+
+
+.formBriefContainer{
+    display: flex;
+    height: 65vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+.formBrief{
+    display: flex;
+    width: 25rem;
+    height: 24rem;
+    border: 1px solid;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px 100px;
+}
+
+.addBriefTitle{
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    align-items: flex-end;
+    text-align: center;
 }

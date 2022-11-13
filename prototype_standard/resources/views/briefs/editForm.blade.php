@@ -1,20 +1,27 @@
 @extends('layout')
 @section('briefs.editForm')
 
-        <form action="{{route('brief.update',$brief->id)}}" method="POST">
 
+
+    <div class="editFormBrief">
+                <form action="{{route('brief.update',$brief->id)}}" method="POST">
             @csrf
             @method('PUT')
-            <input type="text" value="{{ $brief->nameBrief }}" name="newnameBrief">
-            <input type="text" value="{{ $brief->detailBrief }}" name="newdetailBrief">
-            <input type="date" value="{{ $brief->starDate }}" name="newstartDate">
-            <input type="date" value="{{ $brief->endDate }}" name="newendDate">
-            <input type="hidden" value="{{$brief->id}}" name="idBrief">
-            <input type="submit">
+            <div class="row">
+                <input type="text" value="{{ $brief->nameBrief }}" name="newnameBrief" class="form-control mt-4">
+                <input type="text" value="{{ $brief->detailBrief }}" name="newdetailBrief" class="form-control mt-4">
+                <input type="date" value="{{ $brief->starDate }}" name="newstartDate" class="form-control mt-4">
+                <input type="date" value="{{ $brief->endDate }}" name="newendDate" class="form-control mt-4">
+                <input type="hidden" value="{{$brief->id}}" name="idBrief">
 
-            <a href="{{route('brief.task.create',$brief->id)}}"><button type="button" class="btn btn-outline-success">ajouter tache</button></a></td>
+            </div>
+                <button type="submit" class="btn btn-secondary mt-4">Envoyer</button>
         </form>
-    
+        <a href="{{route('brief.task.create',$brief->id)}}"><button type="button" class="btn btn-outline-dark">ajouter tache</button></a></td>
+    </div>
+
+
+
         <table class="table">
             <thead>
               <tr>
@@ -25,20 +32,20 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($tasks as $task)            
+                @foreach ($tasks as $task)
               <tr>
-                <td>{{$task->taskName}}</td>  
+                <td>{{$task->taskName}}</td>
                 <td>{{$task->startDate}}</td>
                 <td>{{$task->endDate}}</td>
-                <td><a href="{{route('task.edit',$task->id)}}"><button type="button" class="btn btn-outline-success">edit tache</button></a>
+                <td><a href="{{route('task.edit',$task->id)}}"><button type="button" class="btn btn-outline-secondary">edit tache</button></a>
                   <form action="{{route ('task.destroy',$task->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-secondary">delete</button>
-                  </form>              
+                  </form>
                 </tr>
               @endforeach
-              
+
 
             </tbody>
           </table>

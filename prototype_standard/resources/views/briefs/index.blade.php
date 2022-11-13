@@ -2,7 +2,15 @@
 
 @section('briefs.index')
 
-<a href="{{ route('brief.create') }}" class="ml-4"><button type="button" class="btn btn-secondary btn-lg">ajouter brief</button></a>
+
+
+<div class="briefList">
+    <div class="titleBrief">
+        <h2>Briefs</h2>
+    </div>
+    <a href="{{ route('brief.create') }}" class="ml-4"><button type="button" class="btn btn-secondary btn-lg">ajouter brief</button></a>
+
+</div>
 <div class="container">
       @foreach ($briefs as $brief)
 

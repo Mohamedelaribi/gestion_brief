@@ -8,13 +8,13 @@ use App\Models\Apprenant_brief;
 
 class GestionApprenant extends Controller
 {
- 
+
     public function index()
     {
-        
+
     }
 
- 
+
     public function create($id)
     {
         return view('apprenants.form',compact('id'));
@@ -29,20 +29,20 @@ class GestionApprenant extends Controller
         $apprenant->email = $request->input('emailApprenant');
         $apprenant->promotion_id = $request->input('idpromotion');
         $apprenant->save();
-        return redirect()->route('promotion.index');
+        return redirect('promotion/'.$request->input('idpromotion').'/edit');
     }
 
 
     public function show($id)
     {
-        
+
     }
 
 
     public function edit($id)
     {
         $apprenant = Apprenant::find($id);
-        return view('apprenants.edit',compact('id'));
+        return view('apprenants.edit',compact('apprenant'));
     }
 
 
@@ -53,13 +53,14 @@ class GestionApprenant extends Controller
         $updateApprenant->lastName = $request->input('newlastApprenant');
         $updateApprenant->email = $request->input('newEmail');
         $updateApprenant->save();
-        return redirect()->route('promotion.index');
+        return redirect('promotion/'.$request->input('idpromotion').'/edit');
     }
 
 
     public function destroy($id)
     {
-        Apprenant::destroy($id);
-        return redirect()->route('brief.index');
+        $apprenant= Apprenant::find($id);
+        $apprenant->destroy($id);
+        return redirect(('promotion/'.$apprenant->promotion_id.'/edit'));
     }
 }
