@@ -19,7 +19,7 @@ class AssingerBrief extends Controller
     }
 
     public function store(Request $request)
-    {   
+    {
             $assignerbrief_id = $request->input('idBrief');
             $assignerapprenant_id = $request->input('idApprenant');
             $apprennants = Apprenant::where('id',$assignerapprenant_id)->first();
@@ -27,14 +27,14 @@ class AssingerBrief extends Controller
             return redirect()->route('promotion.index');
     }
 
-    public function destroy(Request $request)
-    {   
-            $assignerbrief_id = $request->input('idBrief');
-            $assignerapprenant_id = $request->input('idApprenant');
-            $apprennants = Apprenant::where('id',$assignerapprenant_id)->first();
-            $apprennants->brief()->detach($assignerbrief_id);
-            return redirect()->route('promotion.index');
-    }
+    // public function destroy()
+    // {
+    //         $assignerbrief_id = $request->input('idBrief');
+    //         $assignerapprenant_id = $request->input('idApprenant');
+    //         $apprennants = Apprenant::where('id',$assignerapprenant_id)->first();
+    //         $apprennants->brief()->detach($assignerbrief_id);
+    //         return redirect()->route('promotion.index');
+    // }
 
 
     public function show($id)
@@ -43,9 +43,14 @@ class AssingerBrief extends Controller
     }
 
 
+    public function destroy($id)
+    {
+        $desassigner = Apprenants::where($id)->first();
+        $desassigner->brief()->detach($id);
+        return redirect()->route('brief.index');
+    }
 
-
-    // public function destroy($id)
+    // public function destroy($id,$idBrief)
     // {
     //     $desassigner = Apprenants::where('id',$id_apprenant)->first();
     //     $desassigner->brief()->detach($id);

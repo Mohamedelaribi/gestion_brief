@@ -8,11 +8,10 @@ use App\Http\Controllers\GestionTask;
 use App\Http\Controllers\AssingerBrief;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
 Route::get('/', function () {
-    return view('home');
+    return view('layout');
 });
 
 Route::resource('promotion', GestionPromotion::class);
@@ -21,8 +20,7 @@ Route::resource('promotion.apprenant', GestionApprenant::class)->shallow();
 
 Route::resource('brief', GestionBrief::class);
 
-Route::resource('brief.assignbrief', AssingerBrief::class);
-Route::get('/brief/{id}/assignerbrief/{id_apprenant}', [AssingerBrief::class, 'assigner']);
+Route::resource('brief.assignbrief', AssingerBrief::class)->shallow();
 
 Route::resource('brief.task', GestionTask::class)->shallow();
 
